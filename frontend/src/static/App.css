@@ -1,17 +1,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Squada+One&display=swap');
+
+:root{
+  --primary-bg:#e9f5db;
+  --secondary-bg:#87986a;
+  --primary-btn:#588157;
+  --main-font:"Squada One", serif;
+
+}
+
+#app{
+  background-color: #851d30;
+}
 
 body {
-  margin: 5px;
+  padding: 0;
+  margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: #ead3c1;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
+
+
 .main {
-  display: flex;
-  flex-direction: row;
+  padding: 30px;
+  width: calc(100% - 60px);
+  height: calc(100vh - 60px);
+  background-color: var(--primary-bg);
 }
 .main-body {
-  width: 100vw;
-  padding: 15px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 15px; */
+}
+.main-head{
+  line-height: normal;
+  font-family: var(--main-font);
+  font-size:28px;
+  font-weight: bold;
+  font-style: italic;
+  color: var(--primary-btn);
+
 }
 
 .team-col {
@@ -48,11 +84,105 @@ body {
   padding: 15px;
   padding-bottom: 0px;
 }
+
+.formation-nav{
+  height: 50px;
+  width: calc(100% - 17px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0px 8.5px;
+}
+
+.create-team-cont{
+  right: 8.5px;
+  width: 305.5px;
+  height: 50px;
+  background-color: var(--primary-btn);
+  border-radius: 30px;
+  z-index: 999;
+  position: absolute;
+}
+
+.create-team-cont-open{
+  border-radius: 20px 20px 0 0;
+}
+
+.create-btn{
+  width:  calc(100% - 22.5px);
+  height: 50px;
+  display: flex;  
+  align-items: center;
+  gap: 8px;
+  padding-left: 12.5px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.create-team-cont span{
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--primary-bg);
+  
+}
+
+.down-btn{
+  height: calc(100% - 15px);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--secondary-bg);
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.selection{
+  display: none;
+  width: calc(100% - 40px);
+  padding: 20px 20px;
+  border-radius:0px 0px 20px 20px;
+  height: fit-content;
+  position: relative;
+  background-color: #588157;
+}
+
+.selection-open{
+  display: block;
+}
+
 .output-frame {
+  position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  height: 80vh;
+  height: calc(100% - 116px);
+  width: calc(100% - 60px);
+  background-color: var(--secondary-bg);
+  border-radius: 35px;
+  padding: 30px;
+}
+
+
+.field-border{
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  border-radius: 25px;
+  border: 4px solid var(--primary-bg);
+  display: flex;
+}
+.addplayer-btn{
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-btn);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .formation-div {
   display: flex;
@@ -99,12 +229,17 @@ body {
 
 .team-formation {
   width: 50%;
-  height: 95%;
-  margin: 15px;
-  border-radius: 15px;
-  background-color: #9bdeac;
-  border: #851d30 2px solid;
+  height: 100%;
+  border-radius: 25px 0 0 25px;
+  border-right: 2px solid var(--primary-bg);
 }
+
+.team-formation:nth-child(2){
+  border-radius: 0px 25px 25px 0px;
+  border-left: 2px solid var(--primary-bg);
+  border-right: none;
+}
+
 
 .available-formation {
   display: flex;
@@ -133,27 +268,26 @@ body {
 }
 
 .available-players {
-  height: 590px;
-  width: 320px;
-  max-width: 320px;
-  min-width: 265px;
-  background-color: #9bdeac;
+  height: 500px;
+  width: 100%;
   border-radius: 15px;
-  border: #851d30 2px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search {
-  width: 90%;
-  margin-top: 5%;
-  margin-left: 5%;
+  width: 100%;
 }
 
 .filter-class {
   display: flex;
+  width: 100%;
+  height: 80px;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   column-gap: 5%;
-  margin-left: 5%;
-  margin-top: 5%;
 }
 
 .filter-text {
@@ -189,8 +323,7 @@ body {
 }
 
 .result-body {
-  width: 90%;
-  padding-top: 3px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -198,8 +331,6 @@ body {
   height: 170px;
   overflow-y: scroll;
   background-color: #fff;
-  margin-top: 5%;
-  margin-left: 5%;
   border-radius: 15px;
   border: #851d30 2px solid;
 }
@@ -210,12 +341,12 @@ body {
 
 .mid-section {
   display: flex;
+  width: 100%;
+  height: fit-content;
   flex-direction: row;
   column-gap: 20%;
   align-items: center;
   justify-content: center;
-  margin-right: 5%;
-  margin-left: 10%;
 }
 
 .avail-text {
@@ -268,16 +399,14 @@ body {
 }
 
 .available-body {
-  padding-top: 3px;
   display: flex;
   flex-direction: column;
   gap: 2px;
   text-align: center;
-  width: 90%;
+  width: 100%;
   height: 220px;
   overflow-y: scroll;
   background-color: #fff;
-  margin-left: 5%;
   border-radius: 15px;
   border: #851d30 2px solid;
 }
@@ -371,9 +500,81 @@ body {
   opacity: 1;
 }
 
-  .formation-team-title{
-    margin-top: 10px;
-    font-size: 20px;
-    width: 100%;
-    text-align: center;
+.formation-team-title{
+  margin-top: 10px;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+
+@media only screen and (max-width:1024px) {
+  .output-frame{
+    height: calc(90% - 116px);
   }
+}
+
+@media only screen and (max-width:600px) {
+  .output-frame{
+    height: calc(100% - 116px);
+  }
+
+  .field-border{
+    flex-direction: column;
+  }
+
+  .team-formation{
+    width: 100%;
+    height: 50%;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 2px solid var(--primary-bg);
+  }
+
+  .team-formation:nth-child(2){
+    border-radius: 0px;
+    border: none;
+    border-top: 2px solid var(--primary-bg);
+  }
+
+  .formation-nav{
+    flex-direction: column;
+    height: 100px;
+  }
+
+  .create-team-cont{
+    bottom: 10px;
+  }  
+}
+
+@media only screen and (max-width:600px) {
+
+  .formation-nav{
+    justify-content: space-between;
+    padding: 0;
+  }
+  .create-team-cont{
+    right: 0px;
+    position: relative;
+  }
+
+  .output-frame{
+    width: calc(100% - 40px);
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width:370px) {
+  .main{
+    padding: 20px;
+    width: calc(100% - 40px);
+    height: calc(100vh - 40px);
+  }
+}
+
+
+@media only screen and (max-width:360px) {
+  .create-team-cont{
+    width: 100%;
+  }
+}
